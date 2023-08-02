@@ -7,17 +7,21 @@ def helloWorld(request):
     return HttpResponse("Hello i am great i am learning django")
 
 def homepage(request):
+    #to pass data to html page
     context={"error":False,
         "submitted":False,
     }
+    # sending data to backend
     if request.method=="POST":
         data=request.POST
         #print(data)
+        #storing the input fields in diff var
         longurl=data['longurl']
         customname=data['custom_name']
         #print(longurl,customname)
         
         try:
+            #to make obj of class and passing the input data
             obj=LongToShort(long_url=longurl,custom_name=customname)
             context["custom_name"]=request.build_absolute_uri()+customname
             obj.save()
@@ -30,7 +34,7 @@ def homepage(request):
     else:
         print("User didn't submit yet")
     return render(request,"index.html",context)
-
+# the main logic to redirect to long url form short url
 def redirect_url(request,customname):
     print(customname)
     row=LongToShort.objects.filter(custom_name=customname)
@@ -45,8 +49,8 @@ def redirect_url(request,customname):
 
 def task(request):
     context={
-        'name':['Aditya Sharma','Rishabh Rathi'],
-        'company':'Akamai'
+        'name':['Harshal Dhunde','Anuj Pophali'],
+        'company':'Accenture'
     }
     return render(request,'task.html',context)
 

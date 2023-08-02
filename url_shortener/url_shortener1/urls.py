@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include 
 from . import views
-
+# end points
 urlpatterns = [
     path('',views.homepage),
     path('hello',views.helloWorld),

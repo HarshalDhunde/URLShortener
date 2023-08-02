@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 # with the help of orm
 class LongToShort(models.Model):
+    # url validator
     long_url=models.URLField(max_length=500)
     custom_name=models.CharField(max_length=50,unique=True)
     visit_count=models.IntegerField(default=0)

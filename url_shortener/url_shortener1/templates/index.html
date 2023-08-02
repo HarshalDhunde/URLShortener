@@ -42,6 +42,7 @@
 				<div class="row">
 					<div class="col-12 mt-4 py-2 mb-2">
 						<form method="post" id="form_input">
+							{% comment %} CSRF token added {% endcomment %}
 							{% csrf_token %}
 							<div class="input-group">
 								<input type="url" class="cutt_url w-50 p-4 rounded-12"
@@ -55,7 +56,7 @@
 						</form>
 					</div>
 				</div>
-				
+				{% comment %} if if get error as true from view {% endcomment %}
 				{% if error %}
 				<div class="row">
 					<div class="col-12 mt-4 py-2 mb-2" style="text-align: center; color: red;">
@@ -65,6 +66,7 @@
 				{% endif %}
 
 			</div>
+			{% comment %} if we have submitted data then only show the card {% endcomment %}
 			{% if submitted %}
 			<div id="results">
 				<div class="container">
@@ -73,6 +75,7 @@
 							<div class="url_options rounded-6" id="0">
 								<p class="data_link">{{date}}</p>
 								<p class="url_link">
+									{% comment %} come through jinja templatingfrom view {% endcomment %}
 										{{long_url}}
 								</p>
 								<p id="link" class="link_element">
@@ -114,7 +117,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright-text">
-								<p><a href="https://www.o1codingclub.in/">O(1) Coding Club</a></p>
+								{% comment %} <p><a href="https://www.o1codingclub.in/">O(1) Coding Club</a></p> {% endcomment %}
+								<p><a href="https://www.linkedin.com/in/harshaldhunde/" target=_blank>Harshal Dhunde</a></p>
 							</div>
 						</div>
 					</div>
